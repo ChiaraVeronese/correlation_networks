@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[21]:
 
 
 import numpy as np
@@ -14,7 +14,7 @@ from tqdm.notebook import tqdm
 from Kuramoto import Kuramoto
 
 
-# In[2]:
+# In[23]:
 
 
 graph_ER_nx = ig.Graph.Read_Ncol("ER_r1.edges",directed=False,names=True)
@@ -26,6 +26,15 @@ graph_BA = graph_BA_nx.get_adjacency()
 graph_BA = np.array(graph_BA.data)
 
 print("n^ edges in ER: ",graph_ER_nx.ecount(),"in BA: ",graph_BA_nx.ecount())
+
+
+# In[29]:
+
+
+components_ER=graph_ER_nx.components()
+components_BA=graph_BA_nx.components()
+print(components_ER)
+print(components_BA)
 
 
 # In[9]:
